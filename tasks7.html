@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 7</h1>
+    <p>
+      Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей
+      за: за весь рік; у першій половині року; у другій половині року; за літо;
+      за ІІ квартал; за парні місяці (з парними номерами); за місяці, які є
+      початковими у сезоні (весна, літо, осінь, зима).
+    </p>
+    <script>
+      function getRandomNum(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+      }
+
+      function getRandomArray(valuesNumber, minValue, maxValue) {
+        const arr = [];
+        for (let i = 0; i < valuesNumber; i++) {
+          const randNum =
+            minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+          arr.push(randNum);
+        }
+        return arr;
+      }
+      function getPaymentsSumInRange(
+        paymentList,
+        minMonthIndex,
+        maxMonthIndex
+      ) {
+        let sum = 0;
+        for (let month = minMonthIndex; month <= maxMonthIndex; month++) {
+          sum += arr[month - 1];
+        }
+        return sum;
+      }
+
+      function getSumPerEvenMonths(paymentsPerYear) {
+        let sumPerEvenMonths = 0;
+        for (let i = 0; i < paymentsPerYear.length; i++) {
+          if (i % 2 === 0) {
+            i++;
+            sumPerEvenMonths += paymentsPerYear[i];
+          }
+        }
+        return sumPerEvenMonths;
+      }
+
+      function getSumPerMonthsInitialSeason(paymentsOfPerYear) {
+        let sumPerMonthsInitialSeason = 0;
+        for (let i = 0; i < paymentsPerYear.length; i++) {
+          if (i === 2 || i === 5 || i === 8 || i === 11)
+            sumPerMonthsInitialSeason += paymentsPerYear[i];
+        }
+        return sumPerMonthsInitialSeason;
+      }
+      const arr = getRandomArray(12, 1, 100);
+
+      const summYear = getPaymentsSumInRange(paymentList, 1, 12);
+      document.write(``);
+      const summFirstHalfOfYear = getPaymentsSumInRange(paymentList, 1, 6);
+      document.write(``);
+      const summSecondHalfOfYear = getPaymentsSumInRange(paymentList, 7, 12);
+      document.write(``);
+      const summPerYear = getgetSumPerEvenMonths(paymentsPerYear);
+      document.write(
+        `Сума за парні місяці : ${getSumPerEvenMonths(paymentsPerYear)}`
+      );
+      const summPerMonthSeason = getSumPerMonthsInitialSeason(paymentsPerYear);
+      document.write(
+        `Сума за місяці, які є початковими у сезоні: ${getSumPerMonthsInitialSeason(
+          paymentsOfPerYear
+        )}`
+      );
+    </script>
+  </body>
+</html>

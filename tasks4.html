@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 4</h1>
+    <p>
+      Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які
+      : • починаються на букву «А»; • перша і остання літери співпадають; •
+      складаються з більше ніш 5 символів;
+    </p>
+    <script>
+      const numbers = [
+        "АВ5764АН",
+        "АЕ5874КО",
+        "КВ8734УА",
+        "АА22345Н",
+        "АІ4987ІУ",
+      ];
+
+      let countStartsWithA = 0;
+      let countFirstAndLastEqual = 0;
+      let countMoreThanFiveChars = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        // підрахунок кількості номерів, які починаються на букву "А"
+        if (numbers[i].startsWith("А")) {
+          countStartsWithA++;
+        }
+
+        // підрахунок кількості номерів, у яких перша і остання літери співпадають
+        if (numbers[i][0] === numbers[i][numbers[i].length - 1]) {
+          countFirstAndLastEqual++;
+        }
+
+        // підрахунок кількості номерів, які складаються з більше ніж 5 символів
+        if (numbers[i].length > 5) {
+          countMoreThanFiveChars++;
+        }
+      }
+
+      console.log(
+        `Кількість номерів, які починаються на букву "А": ${countStartsWithA}`
+      );
+      console.log(
+        `Кількість номерів, у яких перша і остання літери співпадають: ${countFirstAndLastEqual}`
+      );
+      console.log(
+        `Кількість номерів, які складаються з більше ніж 5 символів: ${countMoreThanFiveChars}`
+      );
+    </script>
+  </body>
+</html>

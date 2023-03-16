@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Задача 5</h1>
+    <p>
+      Дано послідовність оцінок учня. Підрахувати кількість: 1) двійок 2)
+      кількість хороших оцінок (добре, відмінно); 3) кількість оцінок, які нижче
+      середнього.
+    </p>
+    <script>
+      const grades = [4, 5, 2, 3, 5, 4, 5, 4, 3, 4]; //кфлькфсть оцінок
+      //кількість двійок
+      const countTwo = grades.reduce((count, grades) => {
+        return grades === 2 ? count + 1 : count;
+      }, 0);
+
+      //кількість хороших оцінок
+      const countGoodGrades = grades.reduce((count, grades) => {
+        return grades === 4 || grades === 5 ? count + 1 : count;
+      }, 0);
+
+      // кількість оцінок які нижче середнього
+      const averageGrade =
+        grades.reduce((count, grades) => {
+          return sum + grades;
+        }, 0) / grades.length;
+
+      const countBelowAverageGrades = grades.reduce((count, grade) => {
+        return grade < averageGrade ? count + 1 : count;
+      }, 0);
+
+      document.write(`Кількість двійок = ${countTwo}, <br>
+Кількість хороших оцінок = ${countGoodGrades}, <br>
+Кількість оцінок нижче середнього = ${countBelowAverageGrades}`);
+    </script>
+  </body>
+</html>
